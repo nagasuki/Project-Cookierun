@@ -25,6 +25,7 @@ public class EndlessMapGenerator : SingletonMonoBehaviour<EndlessMapGenerator>
     private float spawnPosition = 0f;
     private int currentSegmentIndex = 0;
     private float cameraLeftBound;
+    private bool isSetup = false;
 
     public void SetupStage(MapProperties map)
     {
@@ -37,15 +38,13 @@ public class EndlessMapGenerator : SingletonMonoBehaviour<EndlessMapGenerator>
         {
             SpawnSegmentInitialize();
         }
-    }
 
-    private void Start()
-    {
-
+        isSetup = true;
     }
 
     private void Update()
     {
+        if (!isSetup) return;
         if (GameManager.Instance.IsGameOver) return;
 
         IncreaseMoveSpeed();

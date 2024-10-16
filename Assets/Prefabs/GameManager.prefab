@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d929a1f0c67abfe4fb95e718bce2e78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageId: 0
+  currentStageId: 0
+  mapPropertiesList:
+  - {fileID: 11400000, guid: f7e65320901908f43b6311b51e2ac957, type: 2}
 --- !u!114 &1714605844937599967
 MonoBehaviour:
   m_ObjectHideFlags: 0

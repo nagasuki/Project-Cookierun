@@ -21,7 +21,7 @@ public class LevelSelectionState : IGameState
 
         for (int i = 0; i < UI.StageButtons.Count; i++)
         {
-            if (i < stageId - 1)
+            if (i <= stageId - 1)
             {
                 UI.StageButtons[i].onClick.AddListener(() =>
                 {

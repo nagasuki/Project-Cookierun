@@ -10,6 +10,9 @@ public class UILevelSelectionScene : SingletonMonoBehaviour<UILevelSelectionScen
     public Button BackToMainMenuButton;
 
     public List<Button> StageButtons = new List<Button>();
+
+    [SerializeField] private List<CanvasGroup> panelLock = new List<CanvasGroup>();
+    [SerializeField] private List<CanvasGroup> panelScore = new List<CanvasGroup>();
     [SerializeField] private List<TextMeshProUGUI> highScoreTexts = new List<TextMeshProUGUI>();
 
     public void UnlockStage(int ableStageId)
@@ -18,13 +21,33 @@ public class UILevelSelectionScene : SingletonMonoBehaviour<UILevelSelectionScen
 
         for (int i = 0; i < StageButtons.Count; i++)
         {
-            if (i < stageIndex)
+            if (i <= stageIndex)
             {
                 StageButtons[i].interactable = true;
+
+                panelScore[i].alpha = 1f;
+                panelScore[i].interactable = true;
+                panelScore[i].blocksRaycasts = true;
+
+                panelLock[i].alpha = 0f;
+                panelLock[i].interactable = false;
+                panelLock[i].blocksRaycasts = false;
+
+                Debug.Log("Stage " + (i + 1) + " unlocked");
             }
             else
             {
                 StageButtons[i].interactable = false;
+
+                panelScore[i].alpha = 0f;
+                panelScore[i].interactable = false;
+                panelScore[i].blocksRaycasts = false;
+
+                panelLock[i].alpha = 1f;
+                panelLock[i].interactable = true;
+                panelLock[i].blocksRaycasts = true;
+
+                Debug.Log("Stage " + (i + 1) + " locked");
             }
         }
     }

@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         var lastStageId = PlayerPrefs.GetInt(PlayerPrefsConstants.LAST_STAGE, 1);
         currentStageId = lastStageId;
+        Debug.Log($"Last stage id: {lastStageId}");
         return currentStageId;
     }
 

@@ -8,6 +8,9 @@ namespace PugDev
 {
     public class GameStateManager : MonoBehaviour
     {
+        /// <summary>
+        /// The singleton instance of the <see cref="GameStateManager"/>
+        /// </summary>
         public static GameStateManager Instance { get; private set; }
 
         public PlayerGameStat playerGameStat;
@@ -34,6 +37,7 @@ namespace PugDev
             currentState?.Update();
         }
 
+        // Set state for state pattern
         public async void SetState(IGameState newState, bool isWaitEnterState = true)
         {
             isEnterState = true;

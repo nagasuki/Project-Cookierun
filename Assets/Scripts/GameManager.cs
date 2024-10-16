@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
+/// <summary>
+/// Manages the game state and provides methods for gameplay-related operations.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -23,6 +26,9 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver { get; private set; }
     public bool IsGameComplete { get; private set; }
 
+    /// <summary>
+    /// Initializes the GameManager singleton instance.
+    /// </summary>
     private void Awake()
     {
         if (Instance == null)
@@ -35,23 +41,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts the game by setting the game state to MainMenuState.
+    /// </summary>
     private void Start()
     {
         GameStateManager.Instance.SetState(new MainMenuState());
     }
 
+    /// <summary>
+    /// Resets the game state to default values.
+    /// </summary>
     public void GameStart()
     {
         IsGameOver = false;
         IsGameComplete = false;
     }
 
+    /// <summary>
+    /// Sets the selected stage ID.
+    /// </summary>
+    /// <param name="stageId">The ID of the selected stage.</param>
     public void SetSelectionStageId(int stageId)
     {
         selectionStageId = stageId;
         currentStageId = stageId;
     }
 
+    /// <summary>
+    /// Displays the game over popup and handles the game over logic.
+    /// </summary>
+    /// <param name="score">The player's score.</param>
+    /// <returns>A UniTask representing the async operation.</returns>
     public async UniTask GameOver(int score)
     {
         SoundManager.Instance.PlayeSFX("Die");
@@ -61,8 +82,6 @@ public class GameManager : MonoBehaviour
         gameOverPopup.SetButtonAction(() =>
         {
             gameOverPopup.HidePopup();
-
-            PlayerPrefs.SetInt(PlayerPrefsConstants.LAST_STAGE, Mathf.Clamp(currentStageId + 1, 1, 2));
 
             if (score > GetHighScoreOnStage(currentStageId))
             {
@@ -78,6 +97,11 @@ public class GameManager : MonoBehaviour
         gameOverPopup.ShowPopup();
     }
 
+    /// <summary>
+    /// Displays the game complete popup and handles the game complete logic.
+    /// </summary>
+    /// <param name="score">The player's score.</param>
+    /// <returns>A UniTask representing the async operation.</returns>
     public async UniTask GameComplete(int score)
     {
         IsGameComplete = true;

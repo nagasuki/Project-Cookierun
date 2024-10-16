@@ -7,7 +7,6 @@ namespace PugDev
     {
         [Header("Button Zone")]
         public Button PlayButton;
-        public Button SettingButton;
         public Button QuitButton;
     }
 }

@@ -6,18 +6,51 @@ using UnityEngine;
 
 public class LevelSelectionState : IGameState
 {
-    public UniTask EnterAsync()
+    private UILevelSelectionScene UI;
+
+    public async UniTask EnterAsync()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enter LevelSelectionState");
+        UI = UILevelSelectionScene.Instance;
+
+        var stageId = GameManager.Instance.GetLastStageId();
+        Debug.Log($"Stage ID : {stageId}");
+
+        UI.UnlockStage(stageId);
+        UI.SetHighScoreText(stageId);
+
+        for (int i = 0; i < UI.StageButtons.Count; i++)
+        {
+            if (i < stageId - 1)
+            {
+                UI.StageButtons[i].onClick.AddListener(() =>
+                {
+                    LoadSceneManager.Instance.LoadSceneAsync("GameplayScene", onChangeGameState: () =>
+                    {
+                        GameStateManager.Instance.SetState(new GameStartState());
+                    }).Forget();
+                });
+            }
+        }
+
+        UI.BackToMainMenuButton.onClick.AddListener(() =>
+        {
+            UI.BackToMainMenuButton.interactable = false;
+
+            LoadSceneManager.Instance.LoadSceneAsync("MainMenuScene", onChangeGameState: () =>
+            {
+                GameStateManager.Instance.SetState(new MainMenuState());
+            }).Forget();
+        });
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Exit LevelSelectionState");
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

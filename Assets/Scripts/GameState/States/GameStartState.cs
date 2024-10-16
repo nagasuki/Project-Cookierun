@@ -5,10 +5,16 @@ namespace PugDev
 {
     public class GameStartState : IGameState
     {
-        public UniTask EnterAsync()
+        private EndlessMapGenerator mapGenerator;
+
+        public async UniTask EnterAsync()
         {
             Debug.Log("Entering GameStartState");
-            return UniTask.CompletedTask;
+            mapGenerator = EndlessMapGenerator.Instance;
+
+            var stageId = GameManager.Instance.GetLastStageId();
+            var map = GameManager.Instance.GetMapProperties(stageId);
+            mapGenerator.SetupStage(map);
         }
 
         public void Update()

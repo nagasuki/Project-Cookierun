@@ -1,11 +1,12 @@
-using System.Collections;
+using PugDev;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndlessMapGenerator : MonoBehaviour
+public class EndlessMapGenerator : SingletonMonoBehaviour<EndlessMapGenerator>
 {
     [Header("Map Properties")]
-    public MapProperties MapProperties;
+    [SerializeField] private MapProperties mapProperties;
+    [SerializeField] private SpriteRenderer bgSpriteRenderer;
 
     [Header("Camera")]
     [SerializeField] private Camera mainCamera;
@@ -25,8 +26,10 @@ public class EndlessMapGenerator : MonoBehaviour
     private int currentSegmentIndex = 0;
     private float cameraLeftBound;
 
-    void Start()
+    public void SetupStage(MapProperties map)
     {
+        mapProperties = map;
+
         cameraLeftBound = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.transform.position.z)).x * 3f;
         currentMoveSpeed = initialMoveSpeed;
 
@@ -36,7 +39,12 @@ public class EndlessMapGenerator : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Start()
+    {
+
+    }
+
+    private void Update()
     {
         if (GameManager.Instance.IsGameOver) return;
 
@@ -53,13 +61,30 @@ public class EndlessMapGenerator : MonoBehaviour
             }
         }
 
-        if (activeSegments.Count == 0 && currentSegmentIndex >= MapProperties.MapSegmentsPrefab.Length)
+        if (activeSegments.Count == 0 && currentSegmentIndex >= mapProperties.MapSegmentsPrefab.Length)
         {
             Debug.Log("Level Completed!");
         }
     }
 
-    void MoveMapSegments()
+    private void SetupBackgroundMap()
+    {
+        bgSpriteRenderer.sprite = mapProperties.MapBackground[0];
+    }
+
+    private void ChangeBackground()
+    {
+        if (mapProperties.MapBackground.Length > 1)
+        {
+            
+        }
+        else
+        {
+            bgSpriteRenderer.sprite = mapProperties.MapBackground[0];
+        }
+    }
+
+    private void MoveMapSegments()
     {
         for (int i = 0; i < activeSegments.Count; i++)
         {
@@ -67,27 +92,27 @@ public class EndlessMapGenerator : MonoBehaviour
         }
     }
 
-    void SpawnSegmentInitialize()
+    private void SpawnSegmentInitialize()
     {
-        var randomSegmentIndex = Random.Range(0, MapProperties.MapSegmentsPrefab.Length);
-        GameObject segment = MapProperties.MapSegmentsPrefab[randomSegmentIndex];
+        var randomSegmentIndex = Random.Range(0, mapProperties.MapSegmentsPrefab.Length);
+        GameObject segment = mapProperties.MapSegmentsPrefab[randomSegmentIndex];
         GameObject newSegment = Instantiate(segment, new Vector3(spawnPosition, 0, 0), Quaternion.identity);
         activeSegments.Add(newSegment);
         spawnPosition += segmentLength;
         currentSegmentIndex++;
     }
 
-    void SpawnSegment()
+    private void SpawnSegment()
     {
-        var randomSegmentIndex = Random.Range(0, MapProperties.MapSegmentsPrefab.Length);
-        GameObject segment = MapProperties.MapSegmentsPrefab[randomSegmentIndex];
+        var randomSegmentIndex = Random.Range(0, mapProperties.MapSegmentsPrefab.Length);
+        GameObject segment = mapProperties.MapSegmentsPrefab[randomSegmentIndex];
         GameObject newSegment = Instantiate(segment, new Vector3(activeSegments[maxSegmentsOnSpawn - 1].transform.position.x + segmentLength, 0, 0), Quaternion.identity);
         activeSegments.Add(newSegment);
         spawnPosition += segmentLength;
         currentSegmentIndex++;
     }
 
-    void RemoveOldSegment()
+    private void RemoveOldSegment()
     {
         if (activeSegments.Count > maxSegmentsOnSpawn)
         {
@@ -96,7 +121,7 @@ public class EndlessMapGenerator : MonoBehaviour
         }
     }
 
-    void IncreaseMoveSpeed()
+    private void IncreaseMoveSpeed()
     {
         if (currentMoveSpeed < maxMoveSpeed)
         {

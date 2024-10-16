@@ -13,7 +13,9 @@ namespace PugDev
 
             UI.PlayButton.onClick.AddListener(() =>
             {
-                LoadSceneManager.Instance.LoadSceneAsync("LevelSelectionScene", onLoaded: () =>
+                UI.PlayButton.interactable = false;
+
+                LoadSceneManager.Instance.LoadSceneAsync("LevelSelectionScene", onChangeGameState: () =>
                 {
                     GameStateManager.Instance.SetState(new LevelSelectionState());
                 }).Forget();

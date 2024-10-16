@@ -7,7 +7,7 @@ public class IntroController : MonoBehaviour
     private void Start()
     {
         Debug.Log("IntroController Started");
-        LoadSceneManager.Instance.LoadSceneAsync("MainMenuScene", onLoaded:() =>
+        LoadSceneManager.Instance.LoadSceneAsync("MainMenuScene", onChangeGameState:() =>
         {
             GameStateManager.Instance.SetState(new MainMenuState());
         }).Forget();

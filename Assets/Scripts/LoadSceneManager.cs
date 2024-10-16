@@ -39,7 +39,7 @@ namespace PugDev
             //transitionAnimator.profile.invert = false;
         }
 
-        public async UniTask LoadSceneAsync(string sceneName, LoadTransition transition = LoadTransition.ChangeScene, Action onLoaded = null)
+        public async UniTask LoadSceneAsync(string sceneName, LoadTransition transition = LoadTransition.ChangeScene, Action onChangeGameState = null)
         {
             transitionAnimator.SetProfile(transitionProfiles[transition]);
             transitionAnimator.profile.invert = false;
@@ -49,15 +49,15 @@ namespace PugDev
 
             await SceneManager.LoadSceneAsync(sceneName);
 
+            if (onChangeGameState != null)
+                onChangeGameState?.Invoke();
+
             transitionAnimator.SetProfile(transitionProfiles[transition]);
             transitionAnimator.profile.invert = true;
             transitionAnimator.Play();
 
             await UniTask.WaitUntil(() => transitionAnimator.progress == 1);
             transitionAnimator.profile.invert = false;
-
-            if (onLoaded != null)
-                onLoaded?.Invoke();
         }
     }
 

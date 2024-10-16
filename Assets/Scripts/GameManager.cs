@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [Header("Properties")]
-    [SerializeField] private int stageId = 0;
+    [SerializeField] private int currentStageId = 0;
+    [SerializeField] private List<MapProperties> mapPropertiesList = new List<MapProperties>();
 
     public bool IsGameOver { get; private set; }
 
@@ -42,5 +43,33 @@ public class GameManager : MonoBehaviour
         await UniTask.Delay(2500);
 
 
+    }
+
+    public MapProperties GetMapProperties(int stageId)
+    {
+        return mapPropertiesList[stageId - 1];
+    }
+
+    public int GetLastStageId()
+    {
+        var lastStageId = PlayerPrefs.GetInt(PlayerPrefsConstants.LAST_STAGE, 1);
+        currentStageId = lastStageId;
+        return currentStageId;
+    }
+
+    public void StageClear()
+    {
+        PlayerPrefs.SetInt(PlayerPrefsConstants.LAST_STAGE, currentStageId + 1);
+    }
+
+    public int GetHighScoreOnStage(int stageId)
+    {
+        var highScore = PlayerPrefs.GetInt(PlayerPrefsConstants.HIGHSCORE_STAGE + stageId, 0);
+        return highScore;
+    }
+
+    public void SaveHighScoreOnStage(int stageId, int highScore)
+    {
+        PlayerPrefs.SetInt(PlayerPrefsConstants.HIGHSCORE_STAGE + stageId, highScore);
     }
 }

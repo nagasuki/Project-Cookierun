@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isRuning", false);
             animator.SetBool("isDead", true);
-            GameManager.Instance.GameOver();
+            GameManager.Instance.GameOver().Forget();
         }
 
         animator.SetBool("isSliding", isSliding);
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            Debug.Log("Player is on the ground");
             isJumping = false;
         }
 

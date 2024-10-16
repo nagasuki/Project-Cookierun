@@ -9,6 +9,11 @@ public class MapProperties : ScriptableObject
     public int MaxSegmentsInMap;
 
     [Header("Reference")]
+    public bool IsChangeMapBackground;
     public Sprite[] MapBackground;
     public GameObject[] MapSegmentsPrefab;
+
+    [Header("IsChangePlatForm")]
+    public bool IsChangePlatform;
+    public GameObject[] MapSegmentsChangedPrefab;
 }

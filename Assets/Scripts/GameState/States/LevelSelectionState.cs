@@ -17,7 +17,7 @@ public class LevelSelectionState : IGameState
         Debug.Log($"Stage ID : {stageId}");
 
         UI.UnlockStage(stageId);
-        UI.SetHighScoreText(stageId);
+        UI.LoadHighScoreText();
 
         for (int i = 0; i < UI.StageButtons.Count; i++)
         {

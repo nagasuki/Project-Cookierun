@@ -8,9 +8,15 @@ public class ScoreViewModel : MonoBehaviour
 
     public int CurrentScore => scoreModel.CurrentScore;
 
-    void Start()
+    private void OnEnable()
     {
+        scoreModel = new ScoreModel();
         scoreModel.OnScoreChanged += OnScoreChanged;
+    }
+
+    private void OnDisable()
+    {
+        scoreModel.OnScoreChanged -= OnScoreChanged;
     }
 
     private void OnScoreChanged(int newScore)

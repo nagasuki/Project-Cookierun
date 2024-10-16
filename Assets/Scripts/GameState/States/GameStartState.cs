@@ -10,9 +10,13 @@ namespace PugDev
         public async UniTask EnterAsync()
         {
             Debug.Log("Entering GameStartState");
+
+            GameManager.Instance.GameStart();
+
             mapGenerator = EndlessMapGenerator.Instance;
 
-            var stageId = GameManager.Instance.GetLastStageId();
+            var stageId = GameManager.Instance.SelectionStageId;
+            Debug.Log($"Stage ID : {stageId}");
             var map = GameManager.Instance.GetMapProperties(stageId);
             mapGenerator.SetupStage(map);
         }

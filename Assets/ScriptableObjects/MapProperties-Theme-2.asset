@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0beb62fee6e9a46b68af76b86f72cb, type: 3}
+  m_Name: MapProperties-Theme-2
+  m_EditorClassIdentifier: 
+  MaxSegmentsInMap: 50
+  IsChangeMapBackground: 0
+  MapBackground:
+  - {fileID: 21300000, guid: ad7967a31cdf5eb48b032778a141886b, type: 3}
+  MapSegmentsPrefab:
+  - {fileID: 2034624659288879188, guid: d152d1d74e63bc44eb405d2cb2c5f2c5, type: 3}
+  - {fileID: 2034624659288879188, guid: e99148945bda34544b233e6d50911246, type: 3}
+  - {fileID: 2034624659288879188, guid: e01640c32d84ad64990b6317623e37eb, type: 3}
+  IsChangePlatform: 0
+  MapSegmentsChangedPrefab: []

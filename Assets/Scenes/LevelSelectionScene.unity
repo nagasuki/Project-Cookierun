@@ -1049,6 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439811263}
   - component: {fileID: 439811264}
+  - component: {fileID: 439811265}
   m_Layer: 5
   m_Name: Button-Theme-2
   m_TagString: Untagged
@@ -1121,7 +1122,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 221183240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439811265}
+        m_TargetAssemblyTypeName: StageSelection, Assembly-CSharp
+        m_MethodName: SelectStage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &439811265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439811262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7ef0bbc25af0841a1d65a1e6077053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &550679090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550679091}
   - component: {fileID: 550679092}
+  - component: {fileID: 550679093}
   m_Layer: 5
   m_Name: Button-Theme-1
   m_TagString: Untagged
@@ -1204,7 +1230,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 829325463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 550679093}
+        m_TargetAssemblyTypeName: StageSelection, Assembly-CSharp
+        m_MethodName: SelectStage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &550679093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550679090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7ef0bbc25af0841a1d65a1e6077053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &568028927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988222313}
   - component: {fileID: 988222314}
+  - component: {fileID: 988222315}
   m_Layer: 5
   m_Name: Button-Theme-3
   m_TagString: Untagged
@@ -1719,7 +1770,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 250954384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 988222315}
+        m_TargetAssemblyTypeName: StageSelection, Assembly-CSharp
+        m_MethodName: SelectStage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &988222315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988222312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7ef0bbc25af0841a1d65a1e6077053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089129608
 GameObject:
   m_ObjectHideFlags: 0

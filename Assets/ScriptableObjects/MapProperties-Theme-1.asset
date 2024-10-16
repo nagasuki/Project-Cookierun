@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0beb62fee6e9a46b68af76b86f72cb, type: 3}
   m_Name: MapProperties-Theme-1
   m_EditorClassIdentifier: 
-  MaxSegmentsInMap: 70
-  MapBackground: []
+  MaxSegmentsInMap: 60
+  IsChangeMapBackground: 1
+  MapBackground:
+  - {fileID: 21300000, guid: 82e5e182da9c0284aa110acaf20a9ce9, type: 3}
+  - {fileID: 21300000, guid: d4819be0968f9304a8be404398b4bb28, type: 3}
   MapSegmentsPrefab:
   - {fileID: 7782109115972356130, guid: 3f34b5143e37c3e45b347e500f1acd9f, type: 3}
   - {fileID: 2099022949555524971, guid: e02d20263b3a41a4d8972b03b9a04e15, type: 3}
+  - {fileID: 2099022949555524971, guid: 6dfa274e72024eb4ca317c6e6f71a2a3, type: 3}
+  - {fileID: 2099022949555524971, guid: ac152cc791ef15e4a8d4d0175ce813e2, type: 3}
+  IsChangePlatform: 1
+  MapSegmentsChangedPrefab:
+  - {fileID: 2531943275336024187, guid: 22104351b70db774789b26a678a91218, type: 3}
+  - {fileID: 2531943275336024187, guid: 6c7127db195d16744949d17d0b0973dd, type: 3}
+  - {fileID: 2531943275336024187, guid: 7106115852da1f64f9366eb1f15a106f, type: 3}
+  - {fileID: 2531943275336024187, guid: d2a3968da135f9e4ba884d067d14ad1e, type: 3}

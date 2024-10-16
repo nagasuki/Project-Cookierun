@@ -52,29 +52,19 @@ public class UILevelSelectionScene : SingletonMonoBehaviour<UILevelSelectionScen
         }
     }
 
-    public void SetHighScoreText(int ableStageId)
+    public void LoadHighScoreText()
     {
-        var stageIndex = ableStageId - 1;
-
         for (int i = 0; i < highScoreTexts.Count; i++)
         {
-            if (i < stageIndex)
+            if (GameManager.Instance.GetHighScoreOnStage(i + 1) > 0)
             {
-                if (GameManager.Instance.GetHighScoreOnStage(ableStageId) > 0)
-                {
-                    highScoreTexts[i].text = $"High Score\n" +
-                    $"{GameManager.Instance.GetHighScoreOnStage(ableStageId).ToString("N0")}";
-                }
-                else
-                {
-                    highScoreTexts[i].text = $"High Score\n" +
-                    $"<color=red>{0}</color>";
-                }
+                highScoreTexts[i].text = $"High Score\n" +
+                $"{GameManager.Instance.GetHighScoreOnStage(i + 1).ToString("N0")}";
             }
             else
             {
                 highScoreTexts[i].text = $"High Score\n" +
-                    $"<color=red>{0}</color>";
+                $"<color=red>{0}</color>";
             }
         }
     }

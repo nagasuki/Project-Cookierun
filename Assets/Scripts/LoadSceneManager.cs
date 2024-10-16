@@ -29,16 +29,6 @@ namespace PugDev
             }
         }
 
-        private void OnEnable()
-        {
-
-        }
-
-        private void OnDisable()
-        {
-            //transitionAnimator.profile.invert = false;
-        }
-
         public async UniTask LoadSceneAsync(string sceneName, LoadTransition transition = LoadTransition.ChangeScene, Action onChangeGameState = null)
         {
             transitionAnimator.SetProfile(transitionProfiles[transition]);

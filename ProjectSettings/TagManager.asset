@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Ground
   - Obstacle
-  - 
+  - Score
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3974041451
+    locked: 0
+  - name: Item
+    uniqueID: 3960125145
     locked: 0

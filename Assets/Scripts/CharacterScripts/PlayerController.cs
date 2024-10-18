@@ -6,8 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float normalGravity = 3f;
+
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float jumpForceInPlane = 10f;
+    [SerializeField] private int maxJumpCount = 2;
     [SerializeField] private float hitDuration = 1f;
     [SerializeField] private Animator animator;
     [SerializeField] private LayerMask groundLayer;
@@ -26,12 +29,14 @@ public class PlayerController : MonoBehaviour
     private bool isHit = false;
     private bool isDash = false;
     private float hitTime = 0f;
+    private int currentJumpCount = 0;
 
     public bool IsDash => isDash;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = normalGravity;
         animator.SetTrigger("Runing");
     }
 
@@ -41,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (isGrounded && !isJumping && !isDash)
+        if (isGrounded && !isDash)
         {
             if (Input.GetKey(KeyCode.UpArrow) && !isSliding)
             {
@@ -98,6 +103,11 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        currentJumpCount++;
+        if (currentJumpCount >= maxJumpCount)
+        {
+            return;
+        }
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         isJumping = true;
         SoundManager.Instance.PlayeSFX("Jump");
@@ -136,7 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         isDash = false;
 
-        rb.gravityScale = 2f;
+        rb.gravityScale = normalGravity;
 
         animator.SetTrigger("Runing");
         endlessMapGenerator.StopDashBoost();
@@ -148,6 +158,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player is on the ground");
             isJumping = false;
+            currentJumpCount = 0;
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))

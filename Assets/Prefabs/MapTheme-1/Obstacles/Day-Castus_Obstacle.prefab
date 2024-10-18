@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2874347774818130271}
   - component: {fileID: 3715794704841879117}
-  - component: {fileID: 948133489260723611}
   - component: {fileID: 4770348163563919774}
+  - component: {fileID: 8795597903462869918}
   m_Layer: 7
   m_Name: Day-Castus_Obstacle
   m_TagString: Untagged
@@ -86,8 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &948133489260723611
-BoxCollider2D:
+--- !u!114 &4770348163563919774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741120923309923754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3715794704841879117}
+--- !u!60 &8795597903462869918
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,7 +131,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -128,19 +141,36 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6}
-  m_EdgeRadius: 0
---- !u!114 &4770348163563919774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741120923309923754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3715794704841879117}
+  m_Points:
+    m_Paths:
+    - - {x: 0.13962667, y: 0.38972074}
+      - {x: 0.12794353, y: 0.40636575}
+      - {x: 0.12655371, y: 0.43820393}
+      - {x: 0.11297402, y: 0.5050246}
+      - {x: 0.07, y: 0.59999996}
+      - {x: -0.02, y: 0.59999996}
+      - {x: -0.06568685, y: 0.55106795}
+      - {x: -0.08409118, y: 0.48350006}
+      - {x: -0.09099101, y: 0.38065293}
+      - {x: -0.091236584, y: 0.2785874}
+      - {x: -0.10332488, y: 0.28322303}
+      - {x: -0.12951215, y: 0.30502135}
+      - {x: -0.14156389, y: 0.5124192}
+      - {x: -0.2104305, y: 0.53}
+      - {x: -0.26196194, y: 0.49478468}
+      - {x: -0.25, y: 0.26}
+      - {x: -0.17607626, y: 0.17956944}
+      - {x: -0.1142718, y: 0.16512857}
+      - {x: -0.089373104, y: 0.13649291}
+      - {x: -0.09257602, y: 0.07108038}
+      - {x: -0.06086118, y: 0.02435423}
+      - {x: -0.021722216, y: 0}
+      - {x: 0.0912917, y: 0.0047847433}
+      - {x: 0.11690506, y: 0.094883144}
+      - {x: 0.18488011, y: 0.10555039}
+      - {x: 0.23803806, y: 0.13956948}
+      - {x: 0.25568235, y: 0.25762606}
+      - {x: 0.24640258, y: 0.3748176}
+      - {x: 0.22568974, y: 0.40647322}
+      - {x: 0.1784361, y: 0.41321173}
+  m_UseDelaunayMesh: 0

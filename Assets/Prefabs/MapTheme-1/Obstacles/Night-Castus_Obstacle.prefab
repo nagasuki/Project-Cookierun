@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2874347774818130271}
-  - component: {fileID: 948133489260723611}
   - component: {fileID: 4770348163563919774}
+  - component: {fileID: 7168046600853804451}
   m_Layer: 7
   m_Name: Night-Castus_Obstacle
   m_TagString: Untagged
@@ -34,8 +34,21 @@ Transform:
   - {fileID: 1114091310677779258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &948133489260723611
-BoxCollider2D:
+--- !u!114 &4770348163563919774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741120923309923754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 773744091274806080}
+--- !u!60 &7168046600853804451
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,32 +79,39 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.39, y: 0.45}
-    newSize: {x: 0.5, y: 0.6}
+    newSize: {x: 0.39, y: 0.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6}
-  m_EdgeRadius: 0
---- !u!114 &4770348163563919774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741120923309923754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 773744091274806080}
+  m_Points:
+    m_Paths:
+    - - {x: 0.053189285, y: 0.58430105}
+      - {x: -0.029043049, y: 0.57654035}
+      - {x: -0.090133086, y: 0.47704703}
+      - {x: -0.15553217, y: 0.5067809}
+      - {x: -0.2501586, y: 0.49220568}
+      - {x: -0.26255327, y: 0.3083529}
+      - {x: -0.2469139, y: 0.24438581}
+      - {x: -0.18516064, y: 0.18039288}
+      - {x: -0.09222157, y: 0.15602607}
+      - {x: -0.085, y: 0.01}
+      - {x: -0.065, y: 0}
+      - {x: 0.074999996, y: 0}
+      - {x: 0.095, y: 0.01}
+      - {x: 0.12296058, y: 0.10678484}
+      - {x: 0.195, y: 0.12}
+      - {x: 0.25973195, y: 0.1630198}
+      - {x: 0.2615148, y: 0.3554247}
+      - {x: 0.22345433, y: 0.40534562}
+      - {x: 0.14007887, y: 0.4059374}
+      - {x: 0.082021445, y: 0.55869496}
+  m_UseDelaunayMesh: 0
 --- !u!1 &7976446145140970820
 GameObject:
   m_ObjectHideFlags: 0

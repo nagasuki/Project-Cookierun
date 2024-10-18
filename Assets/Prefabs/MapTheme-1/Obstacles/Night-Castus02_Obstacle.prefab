@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2874347774818130271}
-  - component: {fileID: 948133489260723611}
   - component: {fileID: 4770348163563919774}
+  - component: {fileID: 7264861699512064377}
   m_Layer: 7
   m_Name: Night-Castus02_Obstacle
   m_TagString: Untagged
@@ -34,8 +34,21 @@ Transform:
   - {fileID: 596550078812782721}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &948133489260723611
-BoxCollider2D:
+--- !u!114 &4770348163563919774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741120923309923754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 384793239930100170}
+--- !u!60 &7264861699512064377
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,32 +79,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.20398262}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.24, y: 0.26}
-    newSize: {x: 0.5, y: 0.6}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.33104086, y: 0.40796524}
-  m_EdgeRadius: 0
---- !u!114 &4770348163563919774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741120923309923754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39af8424845e144d8eefb11444f6c7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 384793239930100170}
+  m_Points:
+    m_Paths:
+    - - {x: 0.20632124, y: 0.22056407}
+      - {x: 0.16606809, y: 0.28248104}
+      - {x: 0.0949731, y: 0.28416547}
+      - {x: 0.06380083, y: 0.39465636}
+      - {x: -0.03961181, y: 0.39241523}
+      - {x: -0.07211383, y: 0.3304411}
+      - {x: -0.12901655, y: 0.352249}
+      - {x: -0.19309695, y: 0.30951676}
+      - {x: -0.16863172, y: 0.14732406}
+      - {x: -0.072280765, y: 0.054299384}
+      - {x: -0.052884817, y: -0.012238383}
+      - {x: 0.15875077, y: -0.017809987}
+      - {x: 0.19454509, y: 0.010997504}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6845766002854076198
 GameObject:
   m_ObjectHideFlags: 0
